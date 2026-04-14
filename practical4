@@ -1,0 +1,110 @@
+Java Code :
+package com.example.prac_4;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    EditText et_input;
+    TextView tv_display;    
+    TextView user_display;  
+    Button btn_submit;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        et_input = findViewById(R.id.et_input);
+        tv_display = findViewById(R.id.tv_display);
+        user_display = findViewById(R.id.user_display); 
+        btn_submit = findViewById(R.id.btn_submit);
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = et_input.getText().toString();
+                user_display.setText("Hello, " + name + "!");
+            }
+        });
+    }
+}
+
+
+
+
+
+XML Code : 
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_display"
+        android:layout_width="128dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="241dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="-20dp"
+        android:gravity="center"
+        android:hint="Enter your username...."
+        android:text="Username :"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+        app:layout_constraintEnd_toStartOf="@+id/et_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="226dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="438dp"
+        android:ems="10"
+        android:hint="Enter your username....."
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_display"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="107dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="344dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_display" />
+
+    <TextView
+        android:id="@+id/user_display"
+        android:layout_width="217dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="163dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/et_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
